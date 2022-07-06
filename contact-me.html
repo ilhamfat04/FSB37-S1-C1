@@ -32,7 +32,7 @@
         margin: auto;
         margin-top: 100px;
     ">
-        <form action="">
+        <form id="form-contact">
             <div style=" margin-bottom:20px ;">
                 <label for="name" style="font-size: 20px; font-weight: 700;">Name</label>
                 <input id="name" type="text" required placeholder="input your name" style="
@@ -104,7 +104,7 @@
                 " placeholder="input your message"></textarea>
             </div>
 
-            <button type="submit" style="
+            <button type="button" onclick="getData()" style="
                 background-color: #ec4437;
                 color: white;
                 border: none;
@@ -112,8 +112,11 @@
                 border-radius: 10px;
                 cursor: pointer;
             ">Submit</button>
+
+            <button id="btn-alert" onclick="showAlert()">ALert</button>
         </form>
     </div>
 </body>
+<script src="assets/js/index.js"></script>
 
 </html>
