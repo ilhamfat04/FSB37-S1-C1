@@ -1,67 +1,64 @@
-// ==================================
-// ============ TIPE DATA ===========
-// ==================================
+// Array
+let array = ["ilham", 22, false]
 
-// TIPE DATA PRIMITIF
-// 1. NUMBER
-// 2. STRING
-// 3. BOOLEAN
-// 4. UNDEFINED = BELUM ADA NILAI/DIDEFINISIKAN
-// 5. NULL = KOSONG
-
-// TIPE DATA NON PRIMITIF
-// 6. ARRAY = MENAMPUNG DATA SEKALIGUS
-// 7. OBJECT = SKIP
-// 8. DATE = SKIP
-
-// ==================================
-// ============= VARIABEL ===========
-// ==================================
-
-// KATA KUNCI PENDEKLARASIAN VARIABLE : VAR, LET, CONST
-// kata_kunci nama_variable = value
-// console.log(`Nilai awal : ${myName} Hello`);
-
-var myName = "Ilham Fathullah";
-// console.log("Nilai awal : " + myName + " Hello")
-
-
-// ==================================
-// ============ CONDITION ===========
-// ==================================
-
-let age = 10 // assign value
-
-// == compare value
-// if (age < 20) {
-//     console.log("Umur kamu , kamu belum cukup umur kamu belum cukup umur kamu belum cukup umur");
-// } else if (age == 20) {
-//     console.log(`Umur kamu ${age}, kamu sudah dewasa`);
-// } else {
-//     console.log(`Umur kamu ${age}, kamu sudah lebih dewasa`)
-// }
-
-// ==================================
-// ============ FUNCTION ============
-// ==================================
-
-function greeting(yourName = "there!") {
-    // let yourName = "Dwiki"
-    console.log(`Hello ${yourName} `);
+// object mobil => ban, warna, merk
+// Object
+let object = {
+    name: "ilham",
+    age: 22,
+    isMarried: false
 }
 
-// let myName = "ilham"
-greeting("Dwiki")
-greeting("Darwis")
-greeting()
-greeting(myName)
 
+// console.log(array[4]);
+// console.table(array)
+// console.log(object.age)
 
-function sum(a, b) {
-    let result = a + b
-    console.log(`${a} + ${b} = ${result}`)
+// Array of Object
+// Showroom => mobil1, mobil2, mobil3
+let arrayOfObject = [
+    {
+        name: "ilham",
+        age: 22,
+        isMarried: false
+    },
+    {
+        name: "dandi",
+        age: 20,
+        isMarried: false,
+        country: "indonesia"
+    }
+]
+
+console.table(arrayOfObject);
+
+let data = [
+    {
+        hobby: ["singing", "reading"]
+    }
+]
+
+let objects = {
+    name: "dandi",
+    age: 20,
+    isMarried: false,
+    country: "indonesia"
 }
 
-sum(2, 4)
-sum(6, 4)
-sum(4, 4)
+
+let { age: yourAge } = objects
+// console.log(object.name);
+console.log(yourAge);
+
+
+// param 1 = batas bawah
+// param 2 = batas atas
+// param 3 = peningkatan nilai setiap looping
+
+let arrays = ["ananda", "agastyo", "irham", "Aditia", "Ramy"]
+
+let length = arrays.length
+
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}

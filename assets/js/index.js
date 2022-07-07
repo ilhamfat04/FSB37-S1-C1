@@ -17,11 +17,3 @@ function getData() {
     a.href = `mailto:${emailReceiver}?subject=${subject}&body=Hello, my name ${name}, ${message}, this my phone number ${phone}`
     a.click()
 }
-
-
-let btn = document.getElementById("btn-alert")
-btn.click()
-
-function showAlert() {
-    alert("Haloo guys")
-}
