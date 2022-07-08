@@ -1,5 +1,20 @@
 let blogs = []
 
+let month = [
+    "Januari",
+    "Februari",
+    "Maret",
+    "April",
+    "Mei",
+    "Juni",
+    "Juli",
+    "Agustus",
+    "September",
+    "Oktober",
+    "November",
+    "Desember"
+]
+
 function addBlog(event) {
     event.preventDefault()
 
@@ -12,7 +27,8 @@ function addBlog(event) {
     let blog = {
         title,
         content,
-        image
+        image,
+        postedAt: new Date()
     }
 
     blogs.push(blog)
@@ -20,8 +36,6 @@ function addBlog(event) {
 }
 
 function renderBlogs() {
-    console.log(blogs);
-
     let containerBlogs = document.getElementById("contents")
 
     containerBlogs.innerHTML = ""
@@ -41,13 +55,13 @@ function renderBlogs() {
                     <a href="blog-detail.html" target="_blank">${blogs[i].title}</a>
                 </h1>
                 <div class="detail-blog-content">
-                    12 Jul 2021 22:30 WIB | Ichsan Emrald Alamsyah
+                    ${getFullTime(blogs[i].postedAt)} | Ichsan Emrald Alamsyah
                 </div>
                 <p>
                     ${blogs[i].content}
                 </p>
                 <div style="text-align: right;">
-                    <span style="font-size: 15px; color: grey;">1 hour ago</span>
+                    <span style="font-size: 15px; color: grey;">${getDistanceTime(blogs[i].postedAt)}</span>
                 </div>
             </div>
         </div>
@@ -55,4 +69,49 @@ function renderBlogs() {
     }
 }
 
+function getFullTime(time) {
+    let date = time.getDate()
+    let monthIndex = time.getMonth()
+    let year = time.getFullYear()
+
+    let hour = time.getHours()
+    let minute = time.getMinutes()
+
+    return `${date} ${month[monthIndex]} ${year} ${hour}:${minute} WIB`
+}
+
+function getDistanceTime(time) {
+    // waktu posting = 08.30 => time
+    // waktu aktual = 08.35 => new Date()
+    // sudah berapa lama?
+    // waktu aktual - waktu posting
+
+    let distance = new Date() - new Date(time)
+
+    let miliseconds = 1000
+    let secondInMinutes = 60
+    let minuteInHour = 60
+    let secondInHour = secondInMinutes * minuteInHour // 3600
+    let hourInDay = 23
+
+    let dayDistance = distance / (miliseconds * secondInHour * hourInDay)
+
+    if (dayDistance >= 1) {
+        const dayDate = Math.floor(dayDistance) + ' day ago'
+        return dayDate
+    } else {
+        let hourDistance = Math.floor(distance / (miliseconds * secondInHour))
+        if (hourDistance > 0) {
+            return hourDistance + ' hour ago'
+        } else {
+            let minuteDistance = Math.floor(distance / (miliseconds * secondInMinutes))
+            return minuteDistance + ' minute ago'
+        }
+    }
+
+}
+
+setInterval(function () {
+    renderBlogs()
+}, 2000)
 
